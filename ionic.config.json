@@ -1,0 +1,7 @@
+{
+  "name": "research_ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}

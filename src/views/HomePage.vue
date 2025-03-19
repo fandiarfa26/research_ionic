@@ -96,7 +96,12 @@ function submitForm() {
         },
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data);
         items.value.push(data);
@@ -116,7 +121,12 @@ function deleteProduct(id: string) {
   fetch(`https://api.restful-api.dev/objects/${id}`, {
     method: "DELETE",
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
     .then((data) => {
       console.log(data);
       const index = items.value.findIndex(
